@@ -338,3 +338,41 @@ func maps(a : Array<Int>) -> Array<Int> {
 
 maps(a: [1, 2, 4])
 
+/*
+ Return the Nth Even Number
+ 1 --> 0 (the first even number is 0)
+ 3 --> 4 (the 3rd even number is 4 (0, 2, 4))
+ 100 --> 198
+ */
+
+func nthEven(_ n: Int) -> Int {
+    2 * n - 2
+}
+
+nthEven(100)
+
+/*
+ Complete the solution so that it reverses the string passed into it.
+ */
+
+func reverse(_ str: String) -> String {
+    var someString = ""
+    str.reversed().map { someString.append($0) }
+    return someString
+
+//    String(str.reversed()) - решение в одну строку
+}
+
+reverse("world")
+
+/*
+ Write a function that accepts an integer n and a string s as parameters, and returns a string of s repeated exactly n times.
+ */
+
+func repeatStr(_ n: Int, _ string: String) -> String {
+    String(repeating: string, count: n)
+}
+
+repeatStr(5, "As")
+
+
