@@ -375,4 +375,78 @@ func repeatStr(_ n: Int, _ string: String) -> String {
 
 repeatStr(5, "As")
 
+/*
+ Write a method, that will get an integer array as parameter and will process every number from this array.
+ Return a new array with processing every number of the input-array like this:
+ If the number has an integer square root, take this, otherwise square the number.
+ */
+
+func squareOrSquareRoot(_ input: [Int]) -> [Int] {
+    
+    var array: [Int] = []
+
+    for i in input {
+        let number = Int(sqrt(Double(i)))
+        if number * number == i {
+            array.append(number)
+        } else {
+            array.append(i * i)
+        }
+    }
+
+    return array
+}
+
+squareOrSquareRoot([4, 2, 9])
+
+/*
+ Create a function that gives a personalized greeting. This function takes two parameters: name and owner.
+ Use conditionals to return the proper message:
+ case    return
+ name equals owner    'Hello boss'
+ otherwise    'Hello guest'
+ */
+
+func great(_ name: String, _ owner: String) -> String {
+    name == owner ? "Hello boss" : "Hello guest"
+}
+
+great("1", "2")
+
+/*
+ This kata is about multiplying a given number by eight if it is an even number and by nine otherwise.
+ */
+
+func simpleMultiplication(_ num: Int) -> Int {
+    num % 2 == 0 ? num * 8 : num * 9
+}
+
+/*
+ Complete the function so that it finds the average of the three scores passed to it and returns the letter value associated with that grade
+ Numerical Score    Letter Grade
+ 90 <= score <= 100    'A'
+ 80 <= score < 90    'B'
+ 70 <= score < 80    'C'
+ 60 <= score < 70    'D'
+ 0 <= score < 60    'F
+ */
+
+func getGrade(_ s1: Int, _ s2: Int, _ s3: Int) -> String {
+    
+    let average = (s1 + s2 + s3) / 3
+    
+    switch average {
+    case 90...100:
+        return "A"
+    case 80..<90:
+        return "B"
+    case 70..<80:
+        return "C"
+    case 60..<70:
+        return "D"
+    default:
+        return "F"
+    }
+}
+
 
