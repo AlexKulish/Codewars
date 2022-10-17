@@ -449,4 +449,63 @@ func getGrade(_ s1: Int, _ s2: Int, _ s3: Int) -> String {
     }
 }
 
+/*
+ Your goal is to return multiplication table for number that is always an integer from 1 to 10
+ */
 
+func multi_table(_ number: Int) -> String {
+    
+    var multiTable = ""
+    
+    for num in 1...10 {
+        multiTable += "\(num) * \(number) = \(num * number)\(num != 10 ? "\n" : "")"
+    }
+    
+    return multiTable
+}
+
+/*
+ Given a month as an integer from 1 to 12, return to which quarter of the year it belongs as an integer number.
+
+ For example: month 2 (February), is part of the first quarter; month 6 (June), is part of the second quarter; and month 11 (November), is part of the fourth quarter.
+ */
+
+func quarter(of month: Int) -> Int {
+    switch month {
+    case 1...3:
+        return 1
+    case 4...6:
+        return 2
+    case 7...9:
+        return 3
+    default:
+        return 4
+    }
+}
+
+/*
+ Your task is to find the first element of an array that is not consecutive.
+
+ By not consecutive we mean not exactly 1 larger than the previous element of the array.
+
+ E.g. If we have an array [1,2,3,4,6,7,8] then 1 then 2 then 3 then 4 are all consecutive but 6 is not, so that's the first non-consecutive number.
+ */
+
+
+func firstNonConsecutive (_ arr: [Int]) -> Int? {
+    
+    if arr.isEmpty || arr.count == 1 {
+        return nil
+    }
+    
+    let newArray = Set(arr).sorted()
+    
+    let seq = newArray.first!...newArray.last!
+    
+    let zipArr = Array(zip(newArray, seq))
+    
+    return zipArr.first { $0.0 != $0.1 }?.0
+
+}
+
+firstNonConsecutive([1, 3])
