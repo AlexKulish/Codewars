@@ -1,3 +1,5 @@
+//: [Previous](@previous)
+
 import Darwin
 
 /*
@@ -509,3 +511,56 @@ func firstNonConsecutive (_ arr: [Int]) -> Int? {
 }
 
 firstNonConsecutive([1, 3])
+
+/*
+ Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string
+ */
+
+func fakeBin(digits: String) -> String {
+    
+    var returnString = ""
+    
+    for digit in digits {
+        switch digit {
+        case "0"..<"5":
+            returnString.append("0")
+        default:
+            returnString.append("1")
+        }
+    }
+    
+    return returnString
+    
+    // решение в одну строку
+    //digits.map { $0 < "5" ? "0" : "1"}.joined()
+}
+
+fakeBin(digits: "")
+
+/*
+ 2 пули на одного дракона. Выиграет ли герой?
+ */
+
+func hero(bullets: Int, dragons: Int) -> Bool {
+    
+    bullets / dragons > 1
+    
+}
+
+hero(bullets: 5, dragons: 3)
+
+/*
+ Complete the square sum function so that it squares each number passed into it and then sums the results together.
+ */
+
+func squareSum(_ vals: [Int]) -> Int {
+    
+    vals.reduce(0) { partialResult, num in
+        partialResult + num * num
+    }
+  
+}
+
+squareSum([1, 2, 3, 4])
+
+//: [Next](@next)
